@@ -439,6 +439,8 @@ state_primary_by_group <- function(year, national = FALSE, percentage = FALSE) {
 }
 
 nat_primary_by_year <- function(start_year, percentage = FALSE) {
+  # Table of primary votes by group by election
+  
   tmp_years <- rev(event_ids$year)[match(start_year, rev(event_ids$year)):length(rev(event_ids$year))]
   
   tmp_table <- do.call('bind_rows', lapply(tmp_years, state_primary_by_group, national = TRUE, percentage = percentage))
